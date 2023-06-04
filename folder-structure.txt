@@ -1,0 +1,7 @@
+<Project>
+        features
+           environment.py
+           behave.ini
+           <all feature files>
+                steps
+                   <All step impelmentations>
