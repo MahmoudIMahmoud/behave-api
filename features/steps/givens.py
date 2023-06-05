@@ -9,7 +9,9 @@ import behave_restful._lang_imp.request_builder as _builder
 def a_request_call_url_impl(context, url):
     _builder.set_url(context, context.config.userdata.get(url))
 
-
+@given(u'a request path {path}')
+def a_request_path_impl(context, path):
+    _builder.set_url(context, context.request_url+path)
 
 @given (u'the request payload is {payload_file_path}')
 def the_request_payload_is(context, payload_file_path):

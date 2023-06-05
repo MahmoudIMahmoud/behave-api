@@ -2,6 +2,7 @@ Feature: API to add a new pet to the store.
 
     Scenario: Add a new pet to collection.
         Given a request call url baseurl
+            And a request path /pet
             And the request payload is petbody
             #/body/pet.template
             And payload inputs
