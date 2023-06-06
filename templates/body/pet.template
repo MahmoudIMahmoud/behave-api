@@ -8,11 +8,13 @@
   "photoUrls": [
     "string"
   ],
+  {%if tags %}
   "tags": [
     {
       "id": 0,
       "name": "string"
     }
   ],
+  {%endif%}
   "status": "available"
 }

@@ -11,6 +11,7 @@ def a_request_call_url_impl(context, url):
 
 @given(u'a request path {path}')
 def a_request_path_impl(context, path):
+    path = path.replace('<', u'{').replace('>', u'}')
     _builder.set_url(context, context.request_url+path)
 
 @given (u'the request payload is {payload_file_path}')
@@ -35,3 +36,18 @@ def payload_inputs(context):
     #Rendering the templated payload using all the values from the correlation and data table.
     renderedPayload = render_the_template(context.payloadStrTemplate,**valuesDictionary)
     _builder.set_json_payload(context, renderedPayload)
+
+@given(u'Set the request parameters')
+def set_request_params(context):
+    """
+    """
+    context.request_url = context.request_url.replace('<','{').replace('>','}')
+    _builder.set_url(context,context.request_url)
+    params = context.table
+    # import pdb
+    # pdb.set_trace()
+    resolve = context.vars.resolve
+    resolved_params = {resolve(param['param']): resolve(param['value']) for param in params}
+    context.request_params = resolved_params
+    # context.request_url = resolve(context.request_url,resolved_params)
+    context.request_url = context.request_url.format(**resolved_params)

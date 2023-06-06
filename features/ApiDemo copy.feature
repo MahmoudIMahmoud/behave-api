@@ -66,21 +66,42 @@ Feature: API to add a new pet to the store.
 
 
 
-# Scenario: Get an existing pet working
-#     Given  a request url https://petstore.swagger.io/v2/pet/{petid}
-#     And  request parameters
-#             |param  |value  |
-#             |petid  |123    |
-#     # And a request url https://petstore.swagger.io/v2/pet/<petid>
-#     # And  request parameters
-#             # |petid |  123 |
-#             # | param    | value   |
-#             # | petid    | 123     |
-#         And  request headers
-#             |param  |value              |
-#             |accept |application/json   |
-#         When the request sends GET
-#         Then the response status is 200
+Scenario: Get an existing pet working
+    Given  a request url https://petstore.swagger.io/v2/pet/{petid}
+    # And  request parameters
+    And   Set the request parameters
+            |param  |value  |
+            |petid  |123    |
+    # And a request url https://petstore.swagger.io/v2/pet/<petid>
+    # And  request parameters
+            # |petid |  123 |
+            # | param    | value   |
+            # | petid    | 123     |
+        And  request headers
+            |param  |value              |
+            |accept |application/json   |
+        When the request sends GET
+        Then the response status is 200
+
+
+
+Scenario: Get an existing pet working versions2
+    # Given  a request url https://petstore.swagger.io/v2/pet/{petid}
+    # # And  request parameters
+    # And   Set the request parameters
+    #         |param  |value  |
+    #         |petid  |123    |
+    Given a request url https://petstore.swagger.io/v2/pet/<petid>
+    # And  request parameters
+    And set the request parameters
+            # |petid |  123 |
+            | param    | value   |
+            | petid    | 5     |
+        And  request headers
+            |param  |value              |
+            |accept |application/json   |
+        When the request sends GET
+        Then the response status is 200
 
 
 #     Scenario: Get an existing pet
