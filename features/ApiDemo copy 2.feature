@@ -10,7 +10,7 @@ Feature: API to add a new pet to the store.
                 |id           |135  |
                 |category_name|Cat  |
                 |pet_name     |Selia|
-            And request headers
+            And the request headers
                 |param  |value |
                 |Content-Type|application/json|
                 |Accept|application/json|
@@ -58,47 +58,17 @@ Feature: API to add a new pet to the store.
 
 
 Scenario: Get an existing pet working
-    # Given  a request url https://petstore.swagger.io/v2/pet/
-    Given  request parameters
+    Given  a request url https://petstore.swagger.io/v2/pet/<petid>
             |param  |value  |
             |petid  |123    |
-    And a request url https://petstore.swagger.io/v2/pet/${petid}
+    # And a request url https://petstore.swagger.io/v2/pet/${petid}
     # And  request parameters
             # |petid |  123 |
             # | param    | value   |
             # | petid    | 123     |
-        And  request headers
-            |param  |value              |
-            |accept |application/json   |
+        # And  request headers
+        #     |param  |value              |
+        #     |accept |application/json   |
         When the request sends GET
         Then the response status is 200
-
-
-
-Scenario: Get an existing pet working versions2
-    Given a request url https://petstore.swagger.io/v2/pet/${petid}
-        And  request headers
-            |param  |value              |
-            |accept |application/json   |
-        When the request sends GET
-        Then the response status is 200
-
-
-#     Scenario: Get an existing pet
-#     Given  a request url https://petstore.swagger.io/v2/pet/<petid>
-#     # And  request parameters
-#             # |param  |value  |
-#             # |petid  |123    |
-#             |petid |  
-#             |123   |
-#     # And a request url https://petstore.swagger.io/v2/pet/<petid>
-#     # And  request parameters
-#             # |petid |  123 |
-#             # | param    | value   |
-#             # | petid    | 123     |
-#         And  request headers
-#             |param  |value              |
-#             |accept |application/json   |
-#         When the request sends GET
-#         Then the response status is 200
 

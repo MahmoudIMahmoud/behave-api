@@ -1,3 +1,4 @@
+import pdb
 from behave import *
 from helpers import test
 from helpers.rendering import *
@@ -37,11 +38,11 @@ def payload_inputs(context):
     renderedPayload = render_the_template(context.payloadStrTemplate,**valuesDictionary)
     _builder.set_json_payload(context, renderedPayload)
 
-@given(u'Set the request parameters')
+@given(u'set the request parameters')
 def set_request_params(context):
     """
     """
-    context.request_url = context.request_url.replace('<','{').replace('>','}')
+    context.request_url = context.request_url.replace('<','${').replace('>','}')
     _builder.set_url(context,context.request_url)
     params = context.table
     # import pdb
@@ -51,3 +52,31 @@ def set_request_params(context):
     context.request_params = resolved_params
     # context.request_url = resolve(context.request_url,resolved_params)
     context.request_url = context.request_url.format(**resolved_params)
+
+@given(u'data setup')
+def data_setup(context):
+    # pdb.set_trace()
+    data_set = context.table
+    resolver = context.vars.resolve
+    data_set = {resolver(param['param']): resolver(param['value']) for param in data_set}
+    context.vars.add_vars(data_set)
+    print("data_setup")
+
+
+
+#Set headers using correlation strorage.
+@given('the request headers template')
+def step_impl(context):
+    print("Setting headers")
+    # _builder.set_request_headers(context, context.text)
+    # import pdb
+    # pdb.set_trace()
+    # print("debugging")
+    # table = context.table
+    # rows = table.rows
+    # print(table)
+    # headers = context.table
+    # # import pdb
+    # # pdb.set_trace()
+    # resolve = context.vars.resolve
+    # resolved_headers = {resolve(headers['param']): resolve(headers['value']) for param in headers}

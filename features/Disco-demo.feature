@@ -2,7 +2,7 @@ Feature: API to Launch orderEntry process.
 #https://portail.agir.orange.com/browse/IPCEIS-233
 #IPCEI_OM_Sprint1_verify that the process flow "orderEntry" was triggered succesfully
 
-    Scenario: Add a new pet to collection.
+    Scenario: Launch orderEntry process
         Given a request url https://httpbin.org/post
             And a request json payload
                 """

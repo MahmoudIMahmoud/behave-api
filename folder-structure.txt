@@ -1,7 +1,7 @@
 <Project>
         features
-           environment.py
-           behave.ini
+           environment.py   <---- Hooks
+           behave.ini       <---- Configurations
            <all feature files>
                 steps
                    <All step impelmentations>

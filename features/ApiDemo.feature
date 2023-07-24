@@ -1,8 +1,8 @@
 Feature: API to add a new pet to the store.
 
     Scenario: Add a new pet to collection.
-        Given a request call url site
-        #Given a request url https://petstore.swagger.io/v2/pet
+        # Given a request call url site
+        Given a request url https://petstore.swagger.io/v2/pet
 
             And a request json payload
                 """

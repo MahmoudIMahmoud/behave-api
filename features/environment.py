@@ -14,6 +14,7 @@ def before_all(context):
     #Adding the correlation storage to the context
     #Initilaized as an empty dictionary.
     context.correlation_storage={}
+    context.vars.add('petid','5')
     context.hooks.invoke(br_app.BEFORE_ALL, context)
 
 
