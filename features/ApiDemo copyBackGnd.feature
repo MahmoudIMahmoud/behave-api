@@ -15,10 +15,10 @@ Background:Set background data for the scenarios
                 |id           |0  |
                 |category_name|Cat  |
                 |pet_name     |Selia|
-            And the request headers template
-                |param  |value |
-                |Content-Type|application/json|
-                |Accept|application/json|
+            And the request headers template is basicheader
+                # |param  |value |
+                # |Content-Type|application/json|
+                # |Accept|application/json|
         When the request sends POST
         Then the response status is 200
         And  Assert response matches the schema petaddscema
@@ -28,10 +28,6 @@ Background:Set background data for the scenarios
             And  keep response part $.id in added_pet_id
             And  extract a response regex id":\s*(\d+), as pet_id_rgx
             And  dump response
-
-
-
-
 
 
 Scenario: Get an existing pet working

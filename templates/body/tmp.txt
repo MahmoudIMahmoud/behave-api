@@ -1,0 +1,9 @@
+@given (u'the request header is {header_file_path}')
+def the_request_header_is(context, header_file_path):
+    if not('/' in header_file_path):
+        header_file_path = context.templatemapper.get(header_file_path).data
+    filePath= context.config.userdata.get('templateBaseDirectoy')
+    filePath = os.path.abspath(filePath)+'/templates'
+    filePath = filePath+header_file_path
+    tmplateStr = openTemplate(filePath)
+    context.headerStrTemplate = tmplateStr

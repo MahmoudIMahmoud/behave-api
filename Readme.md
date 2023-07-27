@@ -6,6 +6,13 @@
 -  @given('a request json payload')
 -  @given('request headers')
 -  @given('request parameters')
+-  @given(u'a request call url {url}')
+-  @given(u'a request path {path}')
+-  @given (u'the request payload is {payload_file_path}')
+-  @given(u'payload inputs')
+-  @given(u'set the request parameters')
+-  @given(u'data setup')
+-  @given('the request headers template') Not yet implemented.
 ```
 ## When
 ```python
@@ -26,4 +33,13 @@
 -  @then('the response json at {json_path} is not null')
 -  @then('the response json at {json_path} is true')
 -  @then('the response json at {json_path} is false')
+-  @then(u'Assert response matches the schema {schema_ref}')
+-  @then(u'extract response part {json_path_expr} as {var_name}')
+-  @then(u'keep response part {json_path_expr} in {var_name}')
+-  @then(u'extract a response header {header} as {var_name}')
+-  @then(u'extract a response regex {regex} as {var_name}')
+-  @then(u'debug response')
+-  @then(u'dump curl formatted request')
+-  @then(u'dump response')
+
 ```

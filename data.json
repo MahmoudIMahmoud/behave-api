@@ -1,0 +1,64 @@
+[
+    {
+        "status": "passed",
+        "elements": [
+            {
+                "name": "Run a simple test",
+                "keyword": "Scenario",
+                "tags": [
+                    "ABC-119"
+                ],
+                "steps": [
+                    {
+                        "name": "we have behave installed",
+                        "keyword": "Given",
+                        "step_type": "given",
+                        "result": {
+                            "status": "passed",
+                            "duration": 9.703636169433594e-05
+                        },
+                        "match": {
+                            "location": "features/steps/step_tutorial01.py:7",
+                            "arguments": []
+                        },
+                        "location": "features/tutorial01_basics.feature:5"
+                    },
+                    {
+                        "name": "we implement a test",
+                        "keyword": "When",
+                        "step_type": "when",
+                        "result": {
+                            "status": "passed",
+                            "duration": 7.009506225585938e-05
+                        },
+                        "match": {
+                            "location": "features/steps/step_tutorial01.py:11",
+                            "arguments": []
+                        },
+                        "location": "features/tutorial01_basics.feature:6"
+                    },
+                    {
+                        "name": "behave will test it for us!",
+                        "keyword": "Then",
+                        "step_type": "then",
+                        "result": {
+                            "status": "passed",
+                            "duration": 7.200241088867188e-05
+                        },
+                        "match": {
+                            "location": "features/steps/step_tutorial01.py:15",
+                            "arguments": []
+                        },
+                        "location": "features/tutorial01_basics.feature:7"
+                    }
+                ],
+                "location": "features/tutorial01_basics.feature:4",
+                "type": "scenario"
+            }
+        ],
+        "name": "Showing off behave (tutorial01)",
+        "keyword": "Feature",
+        "tags": [],
+        "location": "features/tutorial01_basics.feature:1"
+    }
+]

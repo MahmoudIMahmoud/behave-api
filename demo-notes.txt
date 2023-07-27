@@ -8,6 +8,9 @@ python -m behave -i Disco-demo.features
 
 behave -f json.pretty –o report.json 
 
+===
+behave --format=json.pretty -o data-rep.json -i "ApiDemo copyBackGnd.feature" 
+
 
 Steps:
 @given('a request url {url}')
