@@ -1,15 +1,21 @@
 import json
 import pdb
+import requests
 from behave import *
 from helpers import test
 from helpers.rendering import *
 import os
 import behave_restful._lang_imp.request_builder as _builder
-
+import random
 
 @given(u'a request call url {url}')
 def a_request_call_url_impl(context, url):
+    context.session.verify=False
     _builder.set_url(context, context.config.userdata.get(url))
+    s = requests.Session()
+    s.verify=False
+    context.session = s    
+    
 
 @given(u'a request path {path}')
 def a_request_path_impl(context, path):
@@ -119,3 +125,16 @@ def header_inputs(context):
     renderedheader = render_the_template(context.headerStrTemplate,**valuesDictionary)
     # context.request_headers=(renderedheader)
     context.request_headers=renderedheader
+
+
+@given(u'random id generated in {random_id}')
+def random_id_generated(context, random_id):
+    # random.randint(2000,100000) 
+    from datetime import datetime
+    # Getting the current date and time
+    dt = datetime.now()
+    # getting the timestamp
+    ts = datetime.timestamp(dt)
+    context.vars.add(random_id,int(ts))
+    print("*="*20,context.vars.get(random_id))
+    pdb.set_trace()
