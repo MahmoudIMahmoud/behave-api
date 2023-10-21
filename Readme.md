@@ -12,7 +12,7 @@
 -  @given(u'payload inputs')
 -  @given(u'set the request parameters')
 -  @given(u'data setup')
--  @given('the request headers template') Not yet implemented.
+-  @given('the request headers template')
 ```
 ## When
 ```python
